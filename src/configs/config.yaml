@@ -1,0 +1,80 @@
+# 프로젝트 설정 파일 (config.yaml)
+# 하드코딩 값들과 매핑 정보 집중 관리
+
+data_paths:
+  train: "../../data/train.csv"
+  test: "../../data/test.csv"
+
+columns:
+  uid: "UID"  # UID 컬럼 추가됨
+  loan_period: "대출 상환 기간"
+  loan_purpose: "대출 목적"
+  job_tenure: "현재 직장 근속 연수"
+  housing_type: "주거 형태"
+  target: "채무 불이행 여부"
+
+# 범주형 데이터 처리
+category_mappings:
+  loan_period_map:
+    단기 상환: 0
+    장기상환: 1
+
+  loan_purpose_map:
+    여행 자금: 1
+    교육비: 2
+    이사 비용: 3
+    결혼 자금: 4
+    사업 대출: 5
+    자동차 구매: 7
+    기타: 8
+    부채 통합: 9
+    휴가 비용: 10
+    주택 개보수: 11
+
+  job_tenure_map:
+    5년: 0
+    4년: 1
+    2년: 2
+    6년: 3
+    9년: 4
+    3년: 5
+    8년: 6
+    10년 이상: 7
+    7년: 8
+    1년 미만: 9
+
+  housing_type_map:
+    자가: 1
+    월세: 3
+
+# 전처리 config
+preprocessing_config:
+  winsorize_series:
+    lower_quantile: 0.01
+    upper_quantile: 0.99
+
+  iqr_capping:
+    factor: 1.5
+
+  log_columns:
+    - "현재 미상환 신용액"
+    - "월 상환 부채액"
+    - "현재 대출 잔액"
+
+  iqr_columns:
+    - "연간 소득"
+
+  knn_imputer:
+    n_neighbors: 10
+
+# model config
+model_config:
+  sgd:
+    loss: "log_loss"
+    penalty: "l2"
+    max_iter: 1000
+    random_state: 42
+
+  train_test_split:
+    test_size: 0.2
+    random_state: 42
