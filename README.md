@@ -8,6 +8,7 @@
 MLOPS_STUDY/
 ├── src/
 │   ├── __init__.py               # 패키지 인식용
+    ├── main.py                   
 │   ├── configs/
 │   │   ├── __init__.py
 │   │   ├── config_loader.py      # config 로딩
@@ -21,7 +22,8 @@ MLOPS_STUDY/
 ├── models/                       # 훈련된 모델 저장소 (자동 생성됨)
 ├── README.md
 ├── requirements.txt
-└── setup.sh
+├── setup.sh
+└── pyproject.toml
 
 ```
 

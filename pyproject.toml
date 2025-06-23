@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mlops_study"
+version = "0.0.1"
+description = "MLops Study: MLOps pipeline for classification"
+authors = [
+    { name = "Seoyoung Kim", email = "ksy654333@gmail.com" }
+]
+readme = "README.md"
+requires-python = ">=3.8"
+license = { "License :: OSI Approved :: MIT License" }
+
+dependencies = [
+    "pandas",
+    "numpy",
+    "scikit-learn",
+    "xgboost",
+    "joblib",
+    "matplotlib",
+    "seaborn",
+    "pyyaml"
+]
+
+[project.urls]
+homepage = "https://github.com/seoyoung-3060/MLOps_Study.git"
